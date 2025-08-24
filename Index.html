@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saumil Shah - Resume</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h2 {
+            font-size: 1.3em;
+            font-weight: 400;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-item i {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #34495e;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .job {
+            margin-bottom: 35px;
+            background: #fafbff;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e8f0ff;
+            transition: all 0.3s ease;
+        }
+
+        .job:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .job-meta {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+
+        .job-duties {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .job-duties li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #34495e;
+        }
+
+        .job-duties li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8em;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-card h4 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .cert-card p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .education-card {
+            background: #fafbff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e8f0ff;
+        }
+
+        .education-card h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .education-card p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+            }
+            
+            .job-meta {
+                text-align: left;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1>Saumil Shah</h1>
+            <h2>Technical Support Specialist & Data Analyst</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Saint John, NB E2K 4C2</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>saumilshah1991@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 647 995 9805</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>Saumil Shah</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h3 class="section-title">Professional Summary</h3>
+                <div class="summary">
+                    Technical Professional with 12+ years in system management, data analysis, and technical support. Google IT Support Professional and ISC2 Certified in Cybersecurity (CC). Expertise in troubleshooting equipment, managing databases, and training users on complex systems.
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Professional Experience</h3>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Biobank Coordinator (Technical Systems Manager)</div>
+                            <div class="company">Dalhousie University</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>Saint John, NB</div>
+                            <div>July 2023 – Present</div>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Manage LIMS databases processing 50+ entries monthly</li>
+                        <li>Train 5+ users on specialized software and troubleshoot system issues</li>
+                        <li>Create technical documentation and maintain audit-ready records</li>
+                        <li>Diagnose and resolve issues with analytical instruments and systems</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Research Technician (Data Analyst)</div>
+                            <div class="company">University of New Brunswick</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>Saint John, NB</div>
+                            <div>September 2018 – August 2024</div>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Processed 100+ datasets annually using specialized software</li>
+                        <li>Coordinated data transfer between 8+ institutional systems</li>
+                        <li>Managed digital inventory systems worth $50K+</li>
+                        <li>Implemented data validation protocols achieving 98% accuracy</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">QC Chemist (Technical Analyst)</div>
+                            <div class="company">KIK Custom Products</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>Etobicoke, ON</div>
+                            <div>June 2018 – August 2018</div>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Performed quality testing using FTIR software and analytical instruments</li>
+                        <li>Maintained 100% compliance with standardized protocols</li>
+                        <li>Conducted equipment maintenance and calibration</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Technical Executive</div>
+                            <div class="company">Eurofins Genomics</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>India</div>
+                            <div>October 2016 – December 2017</div>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Configured technical parameters for automated sequencing systems</li>
+                        <li>Applied bioinformatics software for complex data analysis</li>
+                        <li>Provided technical support and troubleshooting guidance</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Technical Associate</div>
+                            <div class="company">Xcelris Genomics</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>India</div>
+                            <div>November 2013 – September 2016</div>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Established technical workflows and data processing protocols</li>
+                        <li>Optimized system operations, reducing processing time by 25%</li>
+                        <li>Managed 25+ technical projects with 95%+ operational accuracy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Education & Certifications</h3>
+                
+                <h4 style="color: #667eea; margin-bottom: 15px; font-size: 1.1em;">Professional Certifications</h4>
+                <div class="certifications">
+                    <div class="cert-card">
+                        <h4>Google IT Support Professional Certificate</h4>
+                        <p>Coursera | 2025</p>
+                    </div>
+                    <div class="cert-card">
+                        <h4>Certified in Cybersecurity (CC)</h4>
+                        <p>ISC2 | 2025</p>
+                    </div>
+                </div>
+
+                <h4 style="color: #667eea; margin: 25px 0 15px 0; font-size: 1.1em;">Academic Qualifications</h4>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h4>Master of Science in Biotechnology</h4>
+                        <p>D.Y. Patil University | 2012 – 2013</p>
+                    </div>
+                    <div class="education-card">
+                        <h4>Bachelor of Science in Biotechnology</h4>
+                        <p>Dr. D.Y. Patil University | 2008 – 2012</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Software & Systems</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">LIMS</span>
+                            <span class="skill-tag">Database Management</span>
+                            <span class="skill-tag">Microsoft Office</span>
+                            <span class="skill-tag">Help Desk Operations</span>
+                            <span class="skill-tag">Network Troubleshooting</span>
+                            <span class="skill-tag">Statistical Analysis</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Cybersecurity & Compliance</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Security Protocols</span>
+                            <span class="skill-tag">Risk Assessment</span>
+                            <span class="skill-tag">Incident Response</span>
+                            <span class="skill-tag">Data Protection</span>
+                            <span class="skill-tag">Access Control</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technical Support</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Equipment Diagnostics</span>
+                            <span class="skill-tag">System Troubleshooting</span>
+                            <span class="skill-tag">User Training</span>
+                            <span class="skill-tag">Technical Documentation</span>
+                            <span class="skill-tag">Process Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Key Achievements</h3>
+                <div class="achievements">
+                    <div class="achievement-item">
+                        <strong>98% Data Accuracy</strong><br>
+                        Maintained across multiple complex systems
+                    </div>
+                    <div class="achievement-item">
+                        <strong>25% Efficiency Improvement</strong><br>
+                        Reduced system processing time through optimization
+                    </div>
+                    <div class="achievement-item">
+                        <strong>100% Audit Success</strong><br>
+                        Achieved through systematic documentation
+                    </div>
+                    <div class="achievement-item">
+                        <strong>Multi-User Training</strong><br>
+                        Successfully trained 5+ users on technical systems
+                    </div>
+                    <div class="achievement-item">
+                        <strong>Multi-System Coordination</strong><br>
+                        Managed data flow between 8+ institutional databases
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
